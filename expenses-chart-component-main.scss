@@ -1,0 +1,109 @@
+
+@import 'custom.scss';
+
+$container__form-xs: 375;
+$container__form-xxl: 1440;
+$container__form-xxl-min: 1439;
+
+$font_size-18: 18px;
+$font-size-8: 8px;
+$font_weight-normal: 400;
+$font_weight-semi-bold: 600;
+
+
+$colors: (
+  Soft red: hsl(10, 79%, 65%),
+  Cyan: hsl(186, 34%, 60%),
+  Dark brown: hsl(25, 47%, 15%),
+  Medium brown: hsl(28, 10%, 53%),
+  Cream: hsl(27, 66%, 92%),
+  Very pale orange: hsl(33, 100%, 98%),
+);
+$fallback-colors: (
+  IndianRed Cyan Maroon Brown Snow LightSalmon
+);
+
+@mixin background($url,$position:auto,$size:auto,$repeat:no-repeat,$fixed:fixed,$color:white){
+    background: url($url) $position/$size $repeat $fixed $color; 
+}
+@mixin font-color($color, $fallback-color) {
+  color: $fallback-color;
+  color: $color;
+}
+
+@mixin bg-color($color, $fallback-color) {
+  background-color: $fallback-color;
+  background-color: $color;
+}
+
+@mixin width($grid-size) {
+  width: $grid-size * 1px;
+}
+@mixin max-width($grid-size) {
+  max-width: $grid-size * 1px;
+}
+@mixin min-width($grid-size) {
+  min-width: $grid-size * 1px;
+}
+@mixin border-radius($radius...) {
+  border-radius: $radius;
+}
+@mixin margin($args...) {
+  margin: $args;
+}
+@mixin padding($args...) {
+  padding: $args;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  
+  font-weight: $font_weight-normal;
+  @include bg-color(darken(map-get($colors, Very pale orange),8), nth($fallback-colors, 6));
+}
+
+main {
+    overflow: auto;
+    display: grid;
+	@include width($container__form-xs);
+    height: 650px;
+    @include margin(100px auto);
+    border:none;
+	
+	header.container{
+	    @include bg-color(map-get($colors, Soft red),nth($fallback-colors, 1));
+	}
+    div.container{
+	    @include bg-color(lighten(map-get($colors, Cream),12),nth($fallback-colors, 5));
+		.row:nth-of-type(3){
+		    position:relative;
+			top: 200px;
+		}
+    }
+    
+    
+	
+    @media screen and (min-width: $container__form-xxl * 1px) {
+        width: 500px;
+		
+    }
+  
+}
+
+footer {
+  .attribution {
+    font-size: $font_size-8;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}
