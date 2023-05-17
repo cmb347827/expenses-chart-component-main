@@ -1,4 +1,4 @@
-export function addCarets(){
+ function addCarets(){
 	let caret_up= `<span class="caret-up"></span>`;
 	let caret_down= `<span class="caret-down"></span>`;
 	//get all the document elements with class .up
