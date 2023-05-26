@@ -12,7 +12,7 @@ async function getJson() {
   const dataText = await response.text();
 
   const data = JSON.parse(dataText);
-  console.log(data);
+  //console.log(data);
   drawBars(data);
 }
 
