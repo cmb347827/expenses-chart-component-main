@@ -12968,23 +12968,23 @@ main {
     background-color: Snow;
     background-color: white;
     overflow: auto; }
-    main div.container .row:nth-of-type(3) {
+    main div.container :nth-child(3) {
       position: relative;
       top: 160px;
       margin: 0 auto; }
-      main div.container .row:nth-of-type(3) h3, main div.container .row:nth-of-type(3) .h3 {
+      main div.container :nth-child(3) h3, main div.container :nth-child(3) .h3 {
         font-size: 16px;
         color: Brown;
         color: #afa59d; }
-      main div.container .row:nth-of-type(3) .big {
+      main div.container :nth-child(3) .big {
         font-weight: 700; }
-      main div.container .row:nth-of-type(3) div:nth-of-type(1) span {
+      main div.container :nth-child(3) div:nth-of-type(1) span {
         font-size: 2.1em;
         font-weight: 700; }
-      main div.container .row:nth-of-type(3) div:nth-of-type(2) div span {
+      main div.container :nth-child(3) div:nth-of-type(2) div span {
         font-size: 1.5em;
         font-weight: 700; }
-      main div.container .row:nth-of-type(3) div:nth-of-type(2) .lighter {
+      main div.container :nth-child(3) div:nth-of-type(2) .lighter {
         color: Brown;
         color: #afa59d; }
   @media screen and (min-width: 1440px) {

@@ -130,7 +130,7 @@ main {
 	    @include bg-color(lighten(map-get($colors, Cream),12),nth($fallback-colors, 5));
 		overflow: auto;
 		
-		.row:nth-of-type(3){
+		:nth-child(3){
 		    position:relative;
 			top: 160px;
 			@include margin(0 auto);
@@ -157,15 +157,7 @@ main {
 			   }
 			}
 		}
-		.row:nth-of-type(2){
-			
-            .d3{
-			   
-            }			
-	    }
 		
-		 
-		 
     }
     
     
