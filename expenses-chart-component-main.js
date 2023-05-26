@@ -60,21 +60,26 @@ function mouseLeave(event){
 }
 function drawBars(data){
 	let margin = {top: 40, right: 20, bottom: 40, left: 20};
-    const width= 300;
-	let tallerBarsNum= 40;
+    let width;
+	let tallerBarsNum;
 	const viewWidth = window.innerWidth;
 	let x_scale;
 	
-	const height= d3.max(data, (d) => d.amount) + tallerBarsNum;
-	const svgHeight = height + margin.top + margin.bottom;
+	
 	
 	if(viewWidth < 1440){
 	      //create the bar scale ranges , start at -25 to move the bar chart to the left(more in the middle) for mobile.
-	      x_scale = d3.scaleBand().range([-25, width]).padding(0.1);
+	      width=300;
+		  x_scale = d3.scaleBand().range([-25, width]).padding(0.1);
+		  tallerBarsNum= 40;
     } else {
 		  //and start more to the right for desktop view.
-		  x_scale = d3.scaleBand().range([25, width]).padding(0.1);
+		  width=450;
+		  x_scale = d3.scaleBand().range([-20, width]).padding(0.2);
+		  tallerBarsNum= 65;
 	}
+	const height= d3.max(data, (d) => d.amount) + tallerBarsNum;
+	const svgHeight = height + margin.top + margin.bottom;
     const y_scale = d3.scaleLinear().range([height , 0]);
 	//set the domain of the bar scales
 	x_scale.domain(data.map((d) => d.day));
@@ -94,6 +99,7 @@ function drawBars(data){
                .attr("transform", "translate(" + margin.bottom + "," + margin.bottom + ")");
 	svg.append("g")
 	      //group for the x-axis , and move it down to it's location
+		  .style("font", "16px times")
          .attr("transform", "translate(0," + height + ")")
 		  //hide the axis lines
          .call(d3.axisBottom(x_scale)).attr('stroke-width', 0);
