@@ -33,6 +33,7 @@ function mouseEnter(event,data){
 	const tooltip = d3.select("#tooltip");
     const bar = d3.select(this);
 	
+	//get the screen (x,y) location of the mouseEnter event
 	let pos = d3.select(this).node().getBoundingClientRect();
 	tooltip.style("opacity",1)
 	         .text(`$${data.amount}`)
@@ -46,7 +47,7 @@ function mouseEnter(event,data){
 		this.setAttribute('fill',colors['Lightend red']);
 	}
 	
-    console.log('adds',event.target,'this',this.getAttribute('fill'),'data',data); 
+    //console.log('adds',event.target,'this',this.getAttribute('fill'),'data',data); 
 }
 function mouseLeave(event){
 	const tooltip = d3.select("#tooltip");
@@ -66,18 +67,19 @@ function drawBars(data){
 	let x_scale;
 	
 	
-	
+	//create the bar scale ranges
 	if(viewWidth < 1440){
-	      //create the bar scale ranges , start at -25 to move the bar chart to the left(more in the middle) for mobile.
+	      //resize width and height and start at -25 to move the bar chart to the left(more in the middle) for mobile.
 	      width=300;
 		  x_scale = d3.scaleBand().range([-25, width]).padding(0.1);
 		  tallerBarsNum= 40;
     } else {
-		  //and start more to the right for desktop view.
+		  //resize width and height and start more to the right for desktop view.
 		  width=450;
 		  x_scale = d3.scaleBand().range([-20, width]).padding(0.2);
 		  tallerBarsNum= 65;
 	}
+	//relative adjustable height for mobile/desktop.
 	const height= d3.max(data, (d) => d.amount) + tallerBarsNum;
 	const svgHeight = height + margin.top + margin.bottom;
     const y_scale = d3.scaleLinear().range([height , 0]);
