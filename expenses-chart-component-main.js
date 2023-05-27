@@ -5,7 +5,7 @@
 
 async function getJson() {
   const requestURL =
-    "https://corsproxy.io/?https://www.jsonkeeper.com/b/6P7P";
+    "https://raw.githubusercontent.com/cmb347827/expenses-chart-component-main/main/data.json";
   const request = new Request(requestURL);
 
   const response = await fetch(request);
